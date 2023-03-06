@@ -3,23 +3,22 @@
     <body>
         <div id="root"></div>
     </body>
-    <script src="https://unpkg.com/react@18.2/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/react@18.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone@7.21.2/babel.min.js"></script>
     <script type="text/babel">
-    document.cookie = "safeCookie1=foo; SameSite=Lax"; 
-        const [minutes, setMinutes] = React.useState(" ")
-        const onChange = (event) => {
-            setMinutes(event.target.value)
-        }
         function App() {
+            const [minutes, setMinutes] = React.useState()
+            const onChange = (event) => {
+            setMinutes(event.target.value)
+            }
             return(
             <div>
                 <h1>Super converter</h1>
-                <label for="minutes">Minutes</label>
+                <label htmlFor="minutes">Minutes</label>
                 <input value={minutes} id="minutes" placeholder = "Minutes" type="number" onChange={onChange} />
                 <h4>? {minutes}</h4>
-                <label for="hours">Hours</label>
+                <label htmlFor="hours">Hours</label>
                 <input id="hours" placeholder = "Hours" type="number" />
             </div>
             )
