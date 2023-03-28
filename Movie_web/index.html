@@ -7,7 +7,7 @@
   <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.21.2/babel.min.js"></script>
   <script type="text/babel">
-    function App() {
+    function MinutestoHours() {
       const [minutes, setMinutes] = React.useState();
       const [flipped, setFlipped] = React.useState(false);
       const onChange = (event) => {
@@ -20,7 +20,6 @@
       };
       return (
         <div>
-          <h1>Super converter</h1>
           <div>
             <label htmlFor="minutes">Minutes</label>
             <input
@@ -45,6 +44,32 @@
           </div>
           <button onClick={reset}>Reset</button>
           <button onClick={onFlip}>Flip</button>
+        </div>
+      );
+    }
+    function Kmtometers() {
+      return (
+        <div>
+          <h3> Km to M </h3>
+        </div>
+      );
+    }
+    function App() {
+      const [index, setIndex] = React.useState("x");
+      const onSelect = (e) => {
+        setIndex(e.target.value);
+      };
+      return (
+        <div>
+          <h1>Super Converter</h1>
+          <select onChange={onSelect} value={index}>
+            <option value="x">Select option</option>
+            <option value="0">Minutes & Hours</option>
+            <option value="1">Killo & meters</option>
+          </select>
+          {index === "x" ? "" : null}
+          {index === "0" ? <MinutestoHours /> : null}
+          {index === "1" ? <Kmtometers /> : null}
         </div>
       );
     }
