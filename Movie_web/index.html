@@ -48,9 +48,42 @@
       );
     }
     function Kmtometers() {
+      const [meters, setMeters] = React.useState();
+      const [flip, setFlip] = React.useState(false);
+      const onChange = (event) => {
+        setMeters(event.target.value);
+      };
+      const reset = () => setMeters(0);
+      const onFlip = () => {
+        reset();
+        setFlip((current) => !current);
+      };
       return (
         <div>
-          <h3> Km to M </h3>
+          <div>
+            <label htmlFor="killo">KilloM</label>
+            <input
+              value={flip ? meters : Math.round(meters / 1000)}
+              type="number"
+              id="killo"
+              placeholder="Killo"
+              onChange={onChange}
+              disabled={!flip}
+            />
+          </div>
+          <div>
+            <label htmlFor="meters">Meters</label>
+            <input
+              value={flip ? meters * 1000 : meters}
+              type="number"
+              id="meters"
+              placeholder="meters"
+              onChange={onChange}
+              disabled={flip}
+            />
+          </div>
+          <button onClick={reset}>Reset</button>
+          <button onClick={onFlip}>Flip</button>
         </div>
       );
     }
