@@ -101,7 +101,7 @@
             <option value="1">Killo & meters</option>
           </select>
           {index === "x" ? "" : null}
-          {index === "0" ? <MinutestoHours /> : null}
+          {index === "0" && <MinutestoHours />}
           {index === "1" ? <Kmtometers /> : null}
         </div>
       );
